@@ -30,7 +30,7 @@ configurePassport = (userManager) ->
         if passport.currentUser? and id is passport.currentUser._id
             done null, passport.currentUser
         else
-            done null, null
+            done null, false
 
     passport.use new LocalStrategy (email, password, done) ->
         userManager.all (err, users) ->

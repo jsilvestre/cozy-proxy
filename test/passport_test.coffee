@@ -1,12 +1,7 @@
-http = require('http')
 should = require('chai').Should()
-Client = require('request-json').JsonClient
-
-{CozyProxy} = require '../proxy.coffee'
-
-client = new Client("http://localhost:4444/")
-router = new CozyProxy()
 helpers = require './helpers'
+
+client = helpers.getClient()
 
 email = "test@cozycloud.cc"
 password = "password"
@@ -15,15 +10,16 @@ describe "Register / Login", ->
 
     before helpers.createUserAllRequest
     before helpers.deleteAllUsers
-    before -> router.start 4444
-    after  -> router.stop()
-    after  helpers.deleteAllUsers
+    before helpers.startApp
+    after helpers.stopApp
+    after helpers.deleteAllUsers
 
     describe "Register", ->
 
         it "When I send a request to register", (done) ->
             data = email: email, password: password
             client.post "register", data, (error, response, body) =>
+                console.log response.headers
                 @body = body
                 @response = response
                 done()
@@ -38,34 +34,46 @@ describe "Register / Login", ->
         it "When I send a request to login", (done) ->
             client.post "login", password: password, (error, response, body) =>
                 @body = body
+                console.log response.headers
                 @response = response
                 done()
 
         it "Then user is authenticated", (done) ->
             client.get "authenticated", (error, response, body) ->
                 response.statusCode.should.equal 200
-                body.success.should.be.ok
+                body.should.have.property 'isAuthenticated'
+                body.isAuthenticated.should.be.ok
                 done()
 
     describe "Logout", ->
 
         it "When I send a request to logout", (done) ->
             client.get "logout", (error, response, body) ->
+                console.log response.headers
                 response.statusCode.should.equal 200
                 done()
 
         it "Then user is authenticated", (done) ->
             client.get "authenticated", (error, response, body) ->
-                body.success.should.not.be.ok
+                body.should.have.property 'isAuthenticated'
+                body.isAuthenticated.should.not.be.ok
+                done()
+
+        it "When I send a request to login again", (done) ->
+            client = helpers.getClient helpers.defaultClientUrl
+            client.post "login", password: password, (error, response, body) =>
+                @body = body
+                console.log response.headers
+                @response = response
                 done()
 
 describe "Register failure", ->
 
     before helpers.createUserAllRequest
     before helpers.deleteAllUsers
-    before -> router.start 4444
-    after  -> router.stop()
-    after  helpers.deleteAllUsers
+    before helpers.startApp
+    after helpers.stopApp
+    after helpers.deleteAllUsers
 
     it "When I send a register request with a wrong string as email", (done) ->
         data = email: "wrongemail", password: password
@@ -76,7 +84,7 @@ describe "Register failure", ->
 
     it "Then an error response is returned.", ->
         @response.statusCode.should.equal 400
-        @body.error.should.equal true
+        @body.should.have.property 'error'
 
     it "When I send a register request with a too short password", (done) ->
         data = email: email, password: "pas"

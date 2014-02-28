@@ -4,15 +4,15 @@ block js
     script(src='/scripts/reset.js')
 
 block content
-    script
-        key = "#{resetKey}"
+    script.
+        var key = "#{resetKey}";
     .proxy-form
         h1 Tell me your new password
         p.
-           After a password reset, you must reconfigure your 
+           After a password reset, you must reconfigure your
            confidential data like your mailbox or your bank account.
         p.input-wrapper
-            input#password-input(type='text', type='password',
+            input#password-input(type='password',
                                  placeholder='your new password')
         p
             button#submit-btn change password

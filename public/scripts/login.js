@@ -37,7 +37,7 @@
         },
         error: function(err) {
           var msg;
-          msg = JSON.parse(err.responseText).msg;
+          msg = JSON.parse(err.responseText).error;
           successAlert.fadeOut();
           errorAlert.hide();
           errorAlert.html(msg);

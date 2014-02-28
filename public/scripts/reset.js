@@ -26,10 +26,13 @@
         },
         error: function(err) {
           var msg;
+          console.log("got error");
+          console.debug(err);
+          console.debug(err.responseText);
           button.spin();
           button.html('change password');
           successAlert.fadeOut();
-          msg = JSON.parse(err.responseText).msg;
+          msg = JSON.parse(err.responseText).error;
           errorAlert.html(msg);
           return errorAlert.fadeIn();
         }

@@ -1,5 +1,6 @@
 should = require('chai').Should()
 helpers = require './helpers'
+userManager = require "#{helpers.prefix}server/models/user"
 
 describe "Models", ->
 
@@ -16,7 +17,7 @@ describe "Models", ->
                 password: "password"
                 activated: true
 
-            @userManager.create user, (err, code, user) =>
+            userManager.create user, (err, code, user) =>
                 @err = err
                 @code = code
                 @user = user
@@ -27,7 +28,7 @@ describe "Models", ->
             @code.should.equal 201
 
         it "When I request for users", (done) ->
-            @userManager.all (err, users) =>
+            userManager.all (err, users) =>
                 @users = users
                 done()
 
@@ -39,7 +40,7 @@ describe "Models", ->
     describe "update", ->
         it "When I modify this user", (done) ->
             @user.email = "new@cozycloud.cc"
-            @userManager.merge @user, email: @user.email, (err, code, body) =>
+            userManager.merge @user, email: @user.email, (err, code, body) =>
                 @err = err
                 done()
 
@@ -47,7 +48,7 @@ describe "Models", ->
             should.not.exist @err
 
         it "When I request for users", (done) ->
-            @userManager.all (err, users) =>
+            userManager.all (err, users) =>
                 @users = users
                 done()
 
@@ -63,17 +64,17 @@ describe "User", ->
             user =
                 email: "test"
                 password: "password"
-            @userManager.isValid(user).should.equal false
-            should.exist @userManager.error
+            userManager.isValid(user).should.equal false
+            should.exist userManager.error
         it "wrong password", ->
             user =
                 email: "test"
                 password: "pas"
-            @userManager.isValid(user).should.equal false
-            should.exist @userManager.error
+            userManager.isValid(user).should.equal false
+            should.exist userManager.error
         it "right email and right password", ->
             user =
                 email: "test@cozycloud.cc"
                 password: "password"
-            @userManager.isValid(user).should.equal true
-            should.not.exist @userManager.error
+            userManager.isValid(user).should.equal true
+            should.not.exist userManager.error

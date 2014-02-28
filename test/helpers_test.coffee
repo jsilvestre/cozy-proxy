@@ -1,6 +1,6 @@
 bcrypt = require 'bcrypt'
 helpers = require '../helpers'
-
+should = require('chai').Should()
 
 describe 'helpers', ->
 
