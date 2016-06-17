@@ -1,4 +1,8 @@
 module.exports = {
+    "index title": "Cozy - Ihre private persönliche Cloud",
+    "index description": "Cozy is an app-based personal cloud you can host at home. It allows you to own and connect your data. It turns a low-cost piece of hardware like a Raspberry Pi 2 or an online VPS into a powerful app platform. It comes with common applications like a contacts manager, calendar, webmail and filebox.",
+    "index noscript title": "Sorry",
+    "index noscript message": "Cozy needs JavaScript and cookies to work but it looks like you have disabled one of them.",
     "error title": "Ups, ein Fehler ist aufgetreten",
     "error headline": "Es scheint als ob etwas schief gelaufen ist.",
     "error reinsurance": "Keine Bange, wahrscheinlich ist es nicht so schlimm!",
@@ -17,6 +21,9 @@ module.exports = {
     "error public info": "Bitte warten Sie für 5 Minuten, sollte dann nichts passiert sein, kontaktieren Sie den Cozy Besitzer!",
     "error server": "Ein interner Fehler ist aufgetreten.",
     "error bad credentials": "Ungültiges Passwort.",
+    "error otp weak counter": "OTP code no longer usable.",
+    "error otp invalid code": "Invalid OTP code.",
+    "error otp unknown": "Cannot authenticate through OTP.",
     "error keys not initialized": "Die Schlüssel sind nicht initialisiert.",
     "error login failed": "Anmeldung fehlgeschlagen.",
     "reset password email from": "Ihr Cozy <no-reply@%{domain}>",

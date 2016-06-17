@@ -1,4 +1,8 @@
 module.exports = {
+    "index title": "Cozy - Votre nuage personnel privé",
+    "index description": "Cozy est un cloud personnel que vous pouvez héberger chez vous. Il vous permet de prendre le contrôle et d'interconnecter vos données entre elles. Il transforme un petit ordinateur tel qu'un Raspberrry Pi 2 ou un serveur VPS en une puissante plateforme web. Le gestionnaire de contacts, le calendrier, le webmail ou encore le gestionnaire de fichiers sont autant d'applications disponibles par défaut.",
+    "index noscript title": "Désolé",
+    "index noscript message": "Cozy nécessite JavaScript et le cookies activés mais il semble que vous ayez désactivé l'un ou l'autre.",
     "error title": "Oups, une erreur est survenue",
     "error headline": "Il semble que quelque chose se soit mal passé.",
     "error reinsurance": "Ne vous inquiétez pas, ce n'est probablement pas trop grave !",
@@ -17,6 +21,9 @@ module.exports = {
     "error public info": "Veuillez attendre 5 minutes, puis contacter le propriétaire du Cozy si rien n'a changé !",
     "error server": "Une erreur interne est survenue.",
     "error bad credentials": "Mot de passe incorrect.",
+    "error otp weak counter": "Code OTP périmé.",
+    "error otp invalid code": "Code OTP invalide.",
+    "error otp unknown": "Impossible d'authentifier l'OTP.",
     "error keys not initialized": "Les clés ne sont pas initialisées.",
     "error login failed": "Echec de la connexion.",
     "reset password email from": "Votre Cozy <no-reply@%{domain}>",
@@ -25,5 +32,4 @@ module.exports = {
     "invalid email format": "Votre adresse email ne semble pas valide.",
     "invalid timezone": "Ce fuseau horaire n'est pas valide. Utilisez un format <Continent>/<Pays>, par exemple Europe/Paris.",
     "password too short": "Votre mot de passe est trop court, il doit contenir au moins 8 caractères."
-}
-;
+};

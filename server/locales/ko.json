@@ -1,4 +1,8 @@
 {
+    "index title": "코지 - 사설 클라우드",
+    "index description": "Cozy는 집에서도 호스팅을 할 수 있는 앱 기반의  사설 클라우드 입니다. 어디서나 개인의 데이터에 접근 할 수 있으며, 낮은 비용의 하드웨어 라즈베리 파이2 또는 온라인 VPS을 통해서도 구현이 가능한 강력한 클라우드 입니다.연락처 관리, 일정관리, 웹메일, 파일 박스의 기본 기능을 지원 합니다.",
+    "index noscript title": "죄송합니다.",
+    "index noscript message": "Cozy를 실행 하기 위해서는 자바스크립트와 쿠키를 허용해야 합니다. 아마도 여러분의 이 둘 중 하나를 허용 하지 않은 것 같습니다.",
     "error title": "앗, 오류가 발생 했습니다.",
     "error headline": "오류가 발생 하였습니다.",
     "error reinsurance": "걱정 하지 마세요, 아마도 심각한 오류는 아닐 것 입니다!",
@@ -17,6 +21,9 @@
     "error public info": "5분정도 기다려 주세요, 그 이후에도 아무런 변화가 없다면 관리자에게 문의하세요!",
     "error server": "내부 오류",
     "error bad credentials": "비밀번호가 올바르지 않습니다.",
+    "error otp weak counter": "OTP code no longer usable.",
+    "error otp invalid code": "Invalid OTP code.",
+    "error otp unknown": "Cannot authenticate through OTP.",
     "error keys not initialized": "키가 초기화 되지 않았습니다.",
     "error login failed": "로그인 실패",
     "reset password email from": "클라우드 <no-reply@%{domain}>",
